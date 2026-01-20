@@ -1,0 +1,40 @@
+name = "solarflare"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# No build command needed for pure JS
+
+[[durable_objects.bindings]]
+name = "POLICY_CACHE"
+class_name = "PolicyCache"
+
+[[durable_objects.bindings]]
+name = "USER_SESSIONS"
+class_name = "UserSession"
+
+[ai]
+binding = "AI"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["PolicyCache", "UserSession"]
+
+[vars]
+API_BASE_URL = "https://solarflare.innotekworker.workers.dev"
+ALLOWED_ORIGINS = "chrome-extension://*"
+ANALYSIS_CACHE_TTL_MINUTES = 30
+MAX_CACHE_SIZE_MB = 100
+RATE_LIMIT_REQUESTS_PER_MINUTE = 10
+RATE_LIMIT_WINDOW_MINUTES = 1
+LLAMA_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+MAX_TOKENS = 4096
+TEMPERATURE = 0.1
+
+[env.production]
+routes = [
+  { pattern = "api.privacy-analyzer.workers.dev", zone_name = "privacy-analyzer.workers.dev" }
+]
+
+[triggers]
+crons = ["0 */6 * * *"]  # Clean up old cache every 6 hours

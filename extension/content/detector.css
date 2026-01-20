@@ -1,0 +1,389 @@
+/* SolarFlare - Floating Notification Styles */
+
+/* ========================================
+   Floating Notification Container
+   ======================================== */
+#solarflare-notification {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 2147483647 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  pointer-events: auto !important;
+}
+
+/* Notification Card */
+.solarflare-card {
+  background: linear-gradient(135deg, rgba(20, 20, 28, 0.95) 0%, rgba(30, 25, 35, 0.95)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 120, 50, 0.2) !important;
+  border-radius: 16px !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 120, 50, 0.1),
+    0 0 40px rgba(255, 100, 50, 0.15) !important;
+  overflow: hidden !important;
+  min-width: 300px !important;
+  max-width: 360px !important;
+  animation: solarflare-slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  transform-origin: bottom right !important;
+}
+
+.solarflare-card.minimized {
+  min-width: auto !important;
+  max-width: 56px !important;
+  animation: solarflare-minimize 0.3s ease forwards !important;
+}
+
+@keyframes solarflare-slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes solarflare-minimize {
+  from {
+    min-width: 300px;
+    max-width: 360px;
+  }
+  to {
+    min-width: 56px;
+    max-width: 56px;
+  }
+}
+
+/* Card Header */
+.solarflare-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 16px !important;
+  background: linear-gradient(135deg, rgba(255, 100, 50, 0.15) 0%, rgba(255, 60, 60, 0.1) 100%) !important;
+  border-bottom: 1px solid rgba(255, 120, 50, 0.1) !important;
+}
+
+.solarflare-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.solarflare-icon {
+  width: 28px !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4444 100%) !important;
+  border-radius: 8px !important;
+  color: white !important;
+  box-shadow: 0 0 16px rgba(255, 107, 53, 0.5) !important;
+}
+
+.solarflare-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.solarflare-title {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  letter-spacing: -0.01em !important;
+}
+
+.solarflare-header-actions {
+  display: flex !important;
+  gap: 4px !important;
+}
+
+.solarflare-btn-icon {
+  width: 28px !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 6px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.solarflare-btn-icon:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+}
+
+/* Card Body */
+.solarflare-body {
+  padding: 16px !important;
+}
+
+.solarflare-status {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+
+.solarflare-status-indicator {
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  flex-shrink: 0 !important;
+}
+
+.solarflare-status-indicator.safe {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2) !important;
+}
+
+.solarflare-status-indicator.warning {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #f59e0b !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2) !important;
+}
+
+.solarflare-status-indicator.danger {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #ef4444 !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.2) !important;
+}
+
+.solarflare-status-indicator.unknown {
+  background: rgba(100, 116, 139, 0.15) !important;
+  color: #64748b !important;
+}
+
+.solarflare-status-content {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.solarflare-status-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #f8fafc !important;
+  margin-bottom: 4px !important;
+}
+
+.solarflare-status-desc {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  line-height: 1.4 !important;
+}
+
+/* Policy List */
+.solarflare-policies {
+  margin-top: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.solarflare-policy-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 10px 12px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.solarflare-policy-item:hover {
+  background: rgba(255, 120, 50, 0.1) !important;
+  border-color: rgba(255, 120, 50, 0.3) !important;
+  transform: translateX(4px) !important;
+}
+
+.solarflare-policy-icon {
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 8px !important;
+  font-size: 16px !important;
+}
+
+.solarflare-policy-icon.privacy {
+  background: rgba(99, 102, 241, 0.15) !important;
+  color: #818cf8 !important;
+}
+
+.solarflare-policy-icon.terms {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+}
+
+.solarflare-policy-info {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.solarflare-policy-name {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #f8fafc !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.solarflare-policy-type {
+  font-size: 11px !important;
+  color: #64748b !important;
+  text-transform: capitalize !important;
+}
+
+.solarflare-policy-arrow {
+  color: rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.solarflare-policy-item:hover .solarflare-policy-arrow {
+  color: #ff6b35 !important;
+  transform: translateX(2px) !important;
+}
+
+/* Action Button */
+.solarflare-action {
+  margin-top: 12px !important;
+}
+
+.solarflare-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  padding: 12px 16px !important;
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4444 100%) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  color: white !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3) !important;
+}
+
+.solarflare-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.4) !important;
+}
+
+/* Minimized State */
+.solarflare-mini-btn {
+  width: 56px !important;
+  height: 56px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4444 100%) !important;
+  border: none !important;
+  border-radius: 16px !important;
+  color: white !important;
+  cursor: pointer !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(255, 100, 50, 0.3) !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+}
+
+.solarflare-mini-btn:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 50px rgba(255, 100, 50, 0.4) !important;
+}
+
+.solarflare-mini-btn svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.solarflare-badge {
+  position: absolute !important;
+  top: -4px !important;
+  right: -4px !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #ef4444 !important;
+  border-radius: 10px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: white !important;
+  padding: 0 6px !important;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5) !important;
+}
+
+.solarflare-badge.safe {
+  background: #10b981 !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5) !important;
+}
+
+.solarflare-badge.warning {
+  background: #f59e0b !important;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5) !important;
+}
+
+/* Footer */
+.solarflare-footer {
+  padding: 10px 16px !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  font-size: 10px !important;
+  color: #64748b !important;
+}
+
+.solarflare-footer svg {
+  width: 12px !important;
+  height: 12px !important;
+  color: #ff6b35 !important;
+}
+
+/* Hide default badges when using floating UI */
+.privacy-analyzer-badge {
+  display: none !important;
+}
+
+/* Spinning animation for loading */
+.solarflare-spin {
+  animation: solarflare-spin 1s linear infinite !important;
+}
+
+@keyframes solarflare-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
