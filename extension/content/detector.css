@@ -387,3 +387,88 @@
     transform: rotate(360deg);
   }
 }
+
+/* Full Report Styles */
+.solarflare-report {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.solarflare-section {
+  padding: 10px 12px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 10px !important;
+}
+
+.solarflare-section.warning {
+  background: rgba(239, 68, 68, 0.08) !important;
+  border-color: rgba(239, 68, 68, 0.2) !important;
+}
+
+.solarflare-section.tips {
+  background: rgba(255, 107, 53, 0.08) !important;
+  border-color: rgba(255, 107, 53, 0.2) !important;
+}
+
+.solarflare-section-title {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #94a3b8 !important;
+  margin-bottom: 8px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.solarflare-section.warning .solarflare-section-title {
+  color: #ef4444 !important;
+}
+
+.solarflare-section.tips .solarflare-section-title {
+  color: #ff6b35 !important;
+}
+
+.solarflare-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.solarflare-list li {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  line-height: 1.4 !important;
+  padding-left: 12px !important;
+  position: relative !important;
+}
+
+.solarflare-list li::before {
+  content: '•' !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: #64748b !important;
+}
+
+.solarflare-section.warning .solarflare-list li {
+  color: rgba(239, 68, 68, 0.8) !important;
+}
+
+.solarflare-section.warning .solarflare-list li::before {
+  color: #ef4444 !important;
+}
+
+.solarflare-btn.secondary {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #94a3b8 !important;
+  box-shadow: none !important;
+}
+
+.solarflare-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+}
